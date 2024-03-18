@@ -1,0 +1,71 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/materie prima.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/materie_prima.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/materie_prima.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 10.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "materie prima.h"
+        -:    6:#include <stdlib.h>
+        -:    7:#include <string.h>
+        -:    8:#include <stddef.h>
+        -:    9:#define nullptr NULL
+        -:   10:
+function new_materie_prima called 6 returned 100% blocks executed 100%
+        6:   11:materie_prima *new_materie_prima (char *name, char *producer, unsigned long quantity) {
+        -:   12:    materie_prima *m;
+        6:   13:    m = malloc(sizeof( materie_prima ));
+        -:   14:
+        -:   15:    //if(m == nullptr) {
+        -:   16:      //  return nullptr;
+        -:   17:    //}
+        -:   18:
+        6:   19:    m->name = malloc((strlen(name) + 1) * sizeof(char));
+        6:   20:    strcpy(m->name, name);
+        -:   21:
+        6:   22:    m->producer = malloc((strlen(producer) + 1) * sizeof(char));
+        6:   23:    strcpy(m->producer, producer);
+        -:   24:
+        6:   25:    m->quantity = quantity;
+        -:   26:
+        6:   27:    return m;
+        6:   27-block  0
+        -:   28:}
+        -:   29:
+function destroy_materie_prima called 6 returned 100% blocks executed 100%
+        6:   30:void destroy_materie_prima(materie_prima *m) {
+        6:   31:    free(m->name);
+        6:   32:    free(m->producer);
+        6:   33:    free(m);
+        6:   34:}
+        -:   35:
+function get_name called 1 returned 100% blocks executed 100%
+        1:   36:char *get_name(materie_prima *m) {
+        1:   37:    return m->name;
+        1:   37-block  0
+        -:   38:}
+        -:   39:
+function get_producer called 1 returned 100% blocks executed 100%
+        1:   40:char *get_producer(materie_prima *m) {
+        1:   41:    return m->producer;
+        1:   41-block  0
+        -:   42:}
+        -:   43:
+function get_quantity called 1 returned 100% blocks executed 100%
+        1:   44:unsigned long get_quantity(materie_prima *m) {
+        1:   45:    return m->quantity;
+        1:   45-block  0
+        -:   46:}
+        -:   47:
+function set_producer called 1 returned 100% blocks executed 100%
+        1:   48:void set_producer(materie_prima *m, char *new_producer) {
+        1:   49:    free(m->producer);
+        1:   50:    m->producer = malloc((strlen(new_producer) + 1) * sizeof(char));
+        1:   51:    strcpy(m->producer, new_producer);
+        1:   52:}
+        -:   53:
+function set_quantity called 1 returned 100% blocks executed 100%
+        1:   54:void set_quantity(materie_prima *m, unsigned long new_quantity) {
+        1:   55:    m->quantity = new_quantity;
+        1:   56:}

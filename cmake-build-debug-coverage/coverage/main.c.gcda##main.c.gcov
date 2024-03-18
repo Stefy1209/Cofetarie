@@ -1,0 +1,14 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/main.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/main.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "materie prima.h"
+        -:    2:#include "test.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    testAll();
+        1:    5-block  0
+call    0 returned 1
+        1:    6:    return 0;
+        -:    7:}

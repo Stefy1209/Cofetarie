@@ -1,0 +1,431 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/test.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/test.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/test.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 13.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include <assert.h>
+        -:    6:#include <string.h>
+        -:    7:#include <stddef.h>
+        -:    8:#include "test.h"
+        -:    9:#include "materie prima.h"
+        -:   10:#include "repo.h"
+        -:   11:#include "service.h"
+        -:   12:#define nullptr NULL
+        -:   13:
+function testCreateMaterie called 1 returned 100% blocks executed 67%
+        1:   14:void testCreateMaterie() {
+        1:   15:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   15-block  0
+call    0 returned 1
+        -:   16:
+       1*:   17:    assert(strcmp(m->name, "lapte") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   17-block  0
+call    2 never executed
+       1*:   18:    assert(strcmp(m->producer, "napolact") == 0);
+        1:   18-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   18-block  1
+call    2 never executed
+       1*:   19:    assert(m->quantity == 20);
+        1:   19-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   19-block  1
+call    2 never executed
+        -:   20:
+        1:   21:    destroy_materie_prima(m);
+        1:   21-block  0
+call    0 returned 1
+        1:   22:}
+        -:   23:
+function testGetName called 1 returned 100% blocks executed 83%
+        1:   24:void testGetName() {
+        1:   25:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   25-block  0
+call    0 returned 1
+        -:   26:
+       1*:   27:    assert(strcmp(get_name(m), "lapte") == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   27-block  0
+call    3 never executed
+        -:   28:
+        1:   29:    destroy_materie_prima(m);
+        1:   29-block  0
+call    0 returned 1
+        1:   30:}
+        -:   31:
+function testGetProducer called 1 returned 100% blocks executed 83%
+        1:   32:void testGetProducer() {
+        1:   33:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   33-block  0
+call    0 returned 1
+        -:   34:
+       1*:   35:    assert(strcmp(get_producer(m), "napolact") == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   35-block  0
+call    3 never executed
+        -:   36:
+        1:   37:    destroy_materie_prima(m);
+        1:   37-block  0
+call    0 returned 1
+        1:   38:}
+        -:   39:
+function testGetQuantity called 1 returned 100% blocks executed 83%
+        1:   40:void testGetQuantity() {
+        1:   41:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   41-block  0
+call    0 returned 1
+        -:   42:
+       1*:   43:    assert(get_quantity(m) == 20);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   43-block  0
+call    3 never executed
+        -:   44:
+        1:   45:    destroy_materie_prima(m);
+        1:   45-block  0
+call    0 returned 1
+        1:   46:}
+        -:   47:
+function testSetProducer called 1 returned 100% blocks executed 83%
+        1:   48:void testSetProducer() {
+        1:   49:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   49-block  0
+call    0 returned 1
+        -:   50:
+        1:   51:    set_producer(m, "dorna");
+call    0 returned 1
+        -:   52:
+       1*:   53:    assert(strcmp(m->producer, "dorna") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   53-block  0
+call    2 never executed
+        -:   54:
+        1:   55:    destroy_materie_prima(m);
+        1:   55-block  0
+call    0 returned 1
+        1:   56:}
+        -:   57:
+function testSetQuantity called 1 returned 100% blocks executed 83%
+        1:   58:void testSetQuantity() {
+        1:   59:    materie_prima *m = new_materie_prima("lapte", "napolact", 20);
+        1:   59-block  0
+call    0 returned 1
+        -:   60:
+        1:   61:    set_quantity(m, 30);
+call    0 returned 1
+        -:   62:
+       1*:   63:    assert(m->quantity == 30);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   63-block  0
+call    2 never executed
+        -:   64:
+        1:   65:    destroy_materie_prima(m);
+        1:   65-block  0
+call    0 returned 1
+        1:   66:}
+        -:   67:
+function testDomain called 1 returned 100% blocks executed 100%
+        1:   68:void testDomain() {
+        1:   69:    testCreateMaterie();
+        1:   69-block  0
+call    0 returned 1
+        1:   70:    testGetName();
+call    0 returned 1
+        1:   71:    testGetProducer();
+call    0 returned 1
+        1:   72:    testGetQuantity();
+call    0 returned 1
+        1:   73:    testSetProducer();
+call    0 returned 1
+        1:   74:    testSetQuantity();
+call    0 returned 1
+        1:   75:}
+        -:   76:
+        -:   77:/*void testNewContainer() {
+        -:   78:    container container1 = new_container();
+        -:   79:
+        -:   80:    assert(container1.size == 0);
+        -:   81:    assert(container1.capacity == 256);
+        -:   82:}
+        -:   83:
+        -:   84:void testDestroyContainer() {
+        -:   85:    container container1 = new_container();
+        -:   86:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:   87:
+        -:   88:    add_material(&container1, materie1);
+        -:   89:    destroy_container(&container1);
+        -:   90:
+        -:   91:    assert(container1.size == 0);
+        -:   92:    assert(container1.capacity == 0);
+        -:   93:}
+        -:   94:
+        -:   95:void testAddMaterial() {
+        -:   96:    container container1 = new_container();
+        -:   97:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:   98:
+        -:   99:    add_material(&container1, materie1);
+        -:  100:
+        -:  101:    assert(strcmp(container1.material[0].name, materie1.name) == 0);
+        -:  102:    assert(strcmp(container1.material[0].producer, materie1.producer) == 0);
+        -:  103:    assert(container1.material[0].quantity == materie1.quantity);
+        -:  104:
+        -:  105:    container1.size = 256;
+        -:  106:
+        -:  107:    add_material(&container1, new_materie("a", "a", 3));
+        -:  108:
+        -:  109:    materie materie2 = new_materie("lapte", "napolact", 10);
+        -:  110:
+        -:  111:    assert(strcmp(container1.material[0].name, materie1.name) == 0);
+        -:  112:    assert(strcmp(container1.material[0].producer, materie1.producer) == 0);
+        -:  113:    assert(container1.material[0].quantity == materie1.quantity);
+        -:  114:}
+        -:  115:
+        -:  116:void testDeleteMaterial() {
+        -:  117:    container container1 = new_container();
+        -:  118:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:  119:    add_material(&container1, materie1);
+        -:  120:    delete_material(&container1, materie1);
+        -:  121:
+        -:  122:    assert(container1.size == 0);
+        -:  123:    assert(container1.capacity == 256);
+        -:  124:
+        -:  125:    add_material(&container1, materie1);
+        -:  126:    delete_material(&container1, new_materie("a", "a", 2));
+        -:  127:
+        -:  128:    assert(container1.size == 1);
+        -:  129:    assert(container1.capacity == 256);
+        -:  130:}
+        -:  131:
+        -:  132:void testGetSize() {
+        -:  133:    container container1 = new_container();
+        -:  134:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:  135:    add_material(&container1, materie1);
+        -:  136:
+        -:  137:    assert(get_size(container1) == 1);
+        -:  138:}
+        -:  139:
+        -:  140:void testGetCapacity() {
+        -:  141:    container container1 = new_container();
+        -:  142:    assert(get_capacity(container1) == 256);
+        -:  143:}
+        -:  144:
+        -:  145:void testFindByName() {
+        -:  146:    container container1 = new_container();
+        -:  147:    materie materie2 = find_by_name(container1,"lapte");
+        -:  148:
+        -:  149:    assert(strcmp(materie2.name, "") == 0);
+        -:  150:    assert(strcmp(materie2.producer, "") == 0);
+        -:  151:    assert(materie2.quantity == 0);
+        -:  152:
+        -:  153:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:  154:    add_material(&container1, materie1);
+        -:  155:
+        -:  156:    materie2 = find_by_name(container1, "lapte");
+        -:  157:
+        -:  158:    assert(strcmp(materie2.name, "lapte") == 0);
+        -:  159:    assert(strcmp(materie2.producer, "napolact") == 0);
+        -:  160:    assert(materie2.quantity == 20);
+        -:  161:}
+        -:  162:
+        -:  163:void testFindByIndex() {
+        -:  164:    container container1 = new_container();
+        -:  165:    materie materie1 = new_materie("lapte", "napolact", 20);
+        -:  166:    add_material(&container1, materie1);
+        -:  167:
+        -:  168:    materie materie2 = find_by_index(container1, 0);
+        -:  169:
+        -:  170:    assert(strcmp(materie2.name, "lapte") == 0);
+        -:  171:    assert(strcmp(materie2.producer, "napolact") == 0);
+        -:  172:    assert(materie2.quantity == 20);
+        -:  173:}
+        -:  174:
+        -:  175:void testRepo() {
+        -:  176:    testNewContainer();
+        -:  177:    testDestroyContainer();
+        -:  178:    testAddMaterial();
+        -:  179:    testDestoryMaterie();
+        -:  180:    testDeleteMaterial();
+        -:  181:    testGetSize();
+        -:  182:    testGetCapacity();
+        -:  183:    testFindByName();
+        -:  184:    testFindByIndex();
+        -:  185:}
+        -:  186:
+        -:  187:void testAddMaterie() {
+        -:  188:    container container1 = new_container();
+        -:  189:
+        -:  190:    add_materie(&container1, "", "a", 2);
+        -:  191:    add_materie(&container1, "a", "", 2);
+        -:  192:    add_materie(&container1, "a", "a", 0);
+        -:  193:
+        -:  194:    add_materie(&container1, "lapte", "napolact", 20);
+        -:  195:    assert(strcmp(container1.material[0].name, "lapte") == 0);
+        -:  196:    assert(strcmp(container1.material[0].producer, "napolact") == 0);
+        -:  197:    assert(container1.material[0].quantity == 20);
+        -:  198:
+        -:  199:    add_materie(&container1, "lapte", "napolact", 10);
+        -:  200:    assert(strcmp(container1.material[0].name, "lapte") == 0);
+        -:  201:    assert(strcmp(container1.material[0].producer, "napolact") == 0);
+        -:  202:    assert(container1.material[0].quantity == 30);
+        -:  203:}
+        -:  204:
+        -:  205:void testModifyMaterie() {
+        -:  206:    container container1 = new_container();
+        -:  207:    modify_materie(&container1, "lapte", "a", 20);
+        -:  208:
+        -:  209:    modify_materie(&container1, "", "a", 2);
+        -:  210:    modify_materie(&container1, "a", "", 2);
+        -:  211:    modify_materie(&container1, "a", "a", 0);
+        -:  212:
+        -:  213:    add_materie(&container1, "lapte", "a", 20);
+        -:  214:    modify_materie(&container1, "lapte", "b", 30);
+        -:  215:
+        -:  216:    assert(strcmp(container1.material[0].name, "lapte") == 0);
+        -:  217:    assert(strcmp(container1.material[0].producer, "b") == 0);
+        -:  218:    assert(container1.material[0].quantity == 30);
+        -:  219:}
+        -:  220:
+        -:  221:void testDeleteMaterie() {
+        -:  222:    container container1 = new_container();
+        -:  223:    add_materie(&container1, "lapte", "a", 20);
+        -:  224:    delete_materie(&container1, "lapte");
+        -:  225:
+        -:  226:    assert(container1.size == 0);
+        -:  227:}
+        -:  228:
+        -:  229:void testFilterByLetter() {
+        -:  230:    container container1 = new_container(), container2;
+        -:  231:    add_materie(&container1, "lapte", "a", 20);
+        -:  232:
+        -:  233:    container2 = filter_by_first_letter(&container1, 'a');
+        -:  234:    assert(container2.size == 0);
+        -:  235:
+        -:  236:    container2 = filter_by_first_letter(&container1, 'l');
+        -:  237:    assert(strcmp(container2.material[0].name, "lapte") == 0);
+        -:  238:    assert(strcmp(container2.material[0].producer, "a") == 0);
+        -:  239:    assert(container2.material[0].quantity == 20);
+        -:  240:}
+        -:  241:
+        -:  242:void testFilterBuQuantity() {
+        -:  243:    container container1 = new_container(), container2;
+        -:  244:    add_materie(&container1, "lapte", "a", 20);
+        -:  245:
+        -:  246:    container2 = filter_by_quantity(&container1, 10);
+        -:  247:    assert(container2.size == 0);
+        -:  248:
+        -:  249:    container2 = filter_by_quantity(&container1, 40);
+        -:  250:    assert(strcmp(container2.material[0].name, "lapte") == 0);
+        -:  251:    assert(strcmp(container2.material[0].producer, "a") == 0);
+        -:  252:    assert(container2.material[0].quantity == 20);
+        -:  253:}
+        -:  254:
+        -:  255:void testSortByNameAscending() {
+        -:  256:    container container1 = new_container(), container2 = new_container();
+        -:  257:    materie materie1 = new_materie("lapte", "napolact", 20),
+        -:  258:            materie2 = new_materie("a", "b", 10);
+        -:  259:
+        -:  260:    add_material(&container1, materie1);
+        -:  261:    add_material(&container1, materie2);
+        -:  262:
+        -:  263:    container2 = sort_by_name_ascending(&container1);
+        -:  264:
+        -:  265:    assert(strcmp(container2.material[0].name, "a") == 0);
+        -:  266:    assert(strcmp(container2.material[0].producer, "b") == 0);
+        -:  267:    assert(container2.material[0].quantity == 10);
+        -:  268:
+        -:  269:    assert(strcmp(container2.material[1].name, "lapte") == 0);
+        -:  270:    assert(strcmp(container2.material[1].producer, "napolact") == 0);
+        -:  271:    assert(container2.material[1].quantity == 20);
+        -:  272:}
+        -:  273:
+        -:  274:void testSortByNameDescending() {
+        -:  275:    container container1 = new_container(), container2 = new_container();
+        -:  276:    materie materie1 = new_materie("lapte", "napolact", 20),
+        -:  277:            materie2 = new_materie("a", "b", 10);
+        -:  278:
+        -:  279:    add_material(&container1, materie2);
+        -:  280:    add_material(&container1, materie1);
+        -:  281:
+        -:  282:    container2 = sort_by_name_descending(&container1);
+        -:  283:
+        -:  284:    assert(strcmp(container2.material[1].name, "a") == 0);
+        -:  285:    assert(strcmp(container2.material[1].producer, "b") == 0);
+        -:  286:    assert(container2.material[1].quantity == 10);
+        -:  287:
+        -:  288:    assert(strcmp(container2.material[0].name, "lapte") == 0);
+        -:  289:    assert(strcmp(container2.material[0].producer, "napolact") == 0);
+        -:  290:    assert(container2.material[0].quantity == 20);
+        -:  291:}
+        -:  292:
+        -:  293:void testSortByQuantityAscending() {
+        -:  294:    container container1 = new_container(), container2 = new_container();
+        -:  295:    materie materie1 = new_materie("lapte", "napolact", 20),
+        -:  296:            materie2 = new_materie("a", "b", 10);
+        -:  297:
+        -:  298:    add_material(&container1, materie1);
+        -:  299:    add_material(&container1, materie2);
+        -:  300:
+        -:  301:    container2 = sort_by_quantity_ascending(&container1);
+        -:  302:
+        -:  303:    assert(strcmp(container2.material[0].name, "a") == 0);
+        -:  304:    assert(strcmp(container2.material[0].producer, "b") == 0);
+        -:  305:    assert(container2.material[0].quantity == 10);
+        -:  306:
+        -:  307:    assert(strcmp(container2.material[1].name, "lapte") == 0);
+        -:  308:    assert(strcmp(container2.material[1].producer, "napolact") == 0);
+        -:  309:    assert(container2.material[1].quantity == 20);
+        -:  310:}
+        -:  311:
+        -:  312:void testSortByQuantityDescending() {
+        -:  313:    container container1 = new_container(), container2 = new_container();
+        -:  314:    materie materie1 = new_materie("lapte", "napolact", 20),
+        -:  315:            materie2 = new_materie("a", "b", 10);
+        -:  316:
+        -:  317:    add_material(&container1, materie2);
+        -:  318:    add_material(&container1, materie1);
+        -:  319:
+        -:  320:    container2 = sort_by_quantity_descending(&container1);
+        -:  321:
+        -:  322:    assert(strcmp(container2.material[1].name, "a") == 0);
+        -:  323:    assert(strcmp(container2.material[1].producer, "b") == 0);
+        -:  324:    assert(container2.material[1].quantity == 10);
+        -:  325:
+        -:  326:    assert(strcmp(container2.material[0].name, "lapte") == 0);
+        -:  327:    assert(strcmp(container2.material[0].producer, "napolact") == 0);
+        -:  328:    assert(container2.material[0].quantity == 20);
+        -:  329:}
+        -:  330:
+        -:  331:void testService() {
+        -:  332:    testAddMaterie();
+        -:  333:    testModifyMaterie();
+        -:  334:    testDeleteMaterie();
+        -:  335:    testFilterByLetter();
+        -:  336:    testFilterBuQuantity();
+        -:  337:    testSortByNameAscending();
+        -:  338:    testSortByNameDescending();
+        -:  339:    testSortByQuantityAscending();
+        -:  340:    testSortByQuantityDescending();
+        -:  341:}*/
+        -:  342:
+function testAll called 1 returned 100% blocks executed 100%
+        1:  343:void testAll() {
+        1:  344:    testDomain();
+        1:  344-block  0
+call    0 returned 1
+        -:  345:    //testRepo();
+        -:  346:    //testService();
+        1:  347:}
