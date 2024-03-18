@@ -12,9 +12,9 @@ materie_prima *new_materie_prima (char *name, char *producer, unsigned long quan
     materie_prima *m;
     m = malloc(sizeof( materie_prima ));
 
-    if(m == nullptr) {
-        return nullptr;
-    }
+    //if(m == nullptr) {
+      //  return nullptr;
+    //}
 
     m->name = malloc((strlen(name) + 1) * sizeof(char));
     strcpy(m->name, name);
