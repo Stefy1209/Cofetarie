@@ -6,14 +6,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
-#define nullptr NULL
 
 materie_prima *new_materie_prima (char *name, char *producer, unsigned long quantity) {
     materie_prima *m;
     m = malloc(sizeof( materie_prima ));
 
-    //if(m == nullptr) {
-      //  return nullptr;
+    //if(m == NULL) {
+      //  return NULL;
     //}
 
     m->name = malloc((strlen(name) + 1) * sizeof(char));

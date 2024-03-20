@@ -7,4 +7,10 @@
 
 #include "service.h"
 
+typedef struct {
+    service *service;
+} ui;
+
+void runUI(ui *UI);
+
 #endif //COFETARIE_UI_H
