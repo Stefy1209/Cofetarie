@@ -64,7 +64,6 @@ bool less_quantity(TElem *e, unsigned long quantity) {
 
 list *filter_by_the_first_letter(service *s, char letter) {
     TElem *e;
-    char *name;
     unsigned long i, size;
     size = get_size(s->list);
 
@@ -82,7 +81,6 @@ list *filter_by_the_first_letter(service *s, char letter) {
 
 list *filter_by_quantity(service *s, unsigned long quantity) {
     TElem *e;
-    char *name;
     unsigned long i, size;
     size = get_size(s->list);
 
@@ -115,20 +113,20 @@ bool down_quantity(TElem *e1, TElem *e2) {
 }
 
 list *sort(service *s, bool (*criteriu)(TElem *, TElem *)) {
-    unsigned long i, j, size, pmin;
+    unsigned long i, j, size, position;
     TElem *aux;
     size = get_size(s->list);
 
     for(i = 0; i < size - 1; i++) {
-        pmin = i;
+        position = i;
         for(j = i+1; j < size; j++) {
             if(criteriu(s->list->element[i], s->list->element[j])) {
-                pmin = j;
+                position = j;
             }
         }
         aux = s->list->element[i];
-        s->list->element[i] = s->list->element[pmin];
-        s->list->element[pmin] = aux;
+        s->list->element[i] = s->list->element[position];
+        s->list->element[position] = aux;
     }
 
     return s->list;

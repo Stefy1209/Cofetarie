@@ -28,6 +28,7 @@ void print(list *l) {
 
 void UIAdd(ui *UI) {
     char name[256], producer[256];
+    char number[256], *ptr;
     unsigned long quantity;
 
     printf("\n");
@@ -36,7 +37,8 @@ void UIAdd(ui *UI) {
     printf("Enter producer: ");
     scanf("%s", producer);
     printf("Enter quantity: ");
-    scanf("%ld", &quantity);
+    scanf("%s", number);
+    quantity = strtoul(number, &ptr, 10);
 
     add_materie_prima(UI->service, name, producer, quantity);
 
@@ -47,6 +49,7 @@ void UIAdd(ui *UI) {
 
 void UIModify(ui *UI) {
     char name[256], new_producer[256];
+    char number[256], *ptr;
     unsigned long new_quantity;
 
     printf("\n");
@@ -55,7 +58,8 @@ void UIModify(ui *UI) {
     printf("Enter producer: ");
     scanf("%s", new_producer);
     printf("Enter quantity: ");
-    scanf("%ld", &new_quantity);
+    scanf("%s", number);
+    new_quantity = strtoul(number, &ptr, 10);
 
     modify_materie(UI->service, name, new_producer, new_quantity);
 
@@ -94,10 +98,12 @@ void UIFilterLetter(ui *UI) {
 
 void UIFilterQuan(ui *UI) {
     unsigned long quantity;
+    char number[256], *ptr;
 
     printf("\n");
     printf("Enter a quantity: ");
-    scanf(" %ld", &quantity);
+    scanf("%s", number);
+    quantity = strtoul(number, &ptr, 10);
 
     filter_by_quantity(UI->service, quantity);
 
@@ -169,7 +175,7 @@ void runUI(ui *UI) {
                     finished = true;
                 break;
             default:
-                break;
+                printf("\n")
         }
     }
 }
