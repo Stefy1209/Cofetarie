@@ -204,6 +204,9 @@ void testFindByIndex() {
     e4 = find_by_index(l, 2);
     assert(e4 == e3);
 
+    e1 = find_by_index(l, 3);
+    assert(e1 == NULL);
+
     destroy_list(l);
 }
 

@@ -6,7 +6,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-list *new_list() {
+list *new_list()
+/// creates a new list
+/// \return list
+{
     list *l;
 
     l = malloc(sizeof(list));
@@ -18,7 +21,10 @@ list *new_list() {
     return l;
 }
 
-void destroy_list(list *l) {
+void destroy_list(list *l)
+/// frees the memory used by l
+/// \param l - list
+{
     unsigned long i, size;
     size = l->size;
 
@@ -30,7 +36,13 @@ void destroy_list(list *l) {
     free(l);
 }
 
-int add_TElem(list *l, TElem *e) {
+int add_TElem(list *l, TElem *e)
+/// adds a TElem to the list
+/// \param l - list
+/// \param e - TElem
+/// \return 0 if it was added with success
+///         1 if it failed
+{
     if(l->size == l->capacity) {
         TElem **aux;
 
@@ -50,7 +62,13 @@ int add_TElem(list *l, TElem *e) {
     return 0;
 }
 
-int delete_TElem(list *l, TElem *e) {
+int delete_TElem(list *l, TElem *e)
+/// eliminates the e from l and also frees the memory used by e
+/// \param l - list
+/// \param e - TElem
+/// \return 0 if the element was eliminated
+///         1 if the element was not found in the list
+{
     unsigned long i, size;
     size = l->size;
 
@@ -70,19 +88,35 @@ int delete_TElem(list *l, TElem *e) {
     return 1;
 }
 
-void empty_list(list *l) {
+void empty_list(list *l)
+/// sets the size of l to 0
+/// \param l - list
+{
     l->size = 0;
 }
 
-unsigned long get_size(list *l) {
+unsigned long get_size(list *l)
+/// gets the size of
+/// \param l
+/// \return
+{
     return l->size;
 }
 
-unsigned long get_capacity(list *l) {
+unsigned long get_capacity(list *l)
+/// gets the capacity of l
+/// \param l - list
+/// \return unsigned long
+{
     return l->capacity;
 }
 
-TElem *find_by_name(list *l, char *name) {
+TElem *find_by_name(list *l, char *name)
+/// gets the TElem that has the name
+/// \param l - list
+/// \param name - char *
+/// \return TElem
+{
     unsigned long i, size;
     size = l->size;
 
@@ -95,6 +129,14 @@ TElem *find_by_name(list *l, char *name) {
     return NULL;
 }
 
-TElem *find_by_index(list *l, unsigned long index) {
+TElem *find_by_index(list *l, unsigned long index)
+/// gets the TElem that occupies the position index in l, starting from 0
+/// \param l - list
+/// \param index - unsigned long
+/// \return - TElem
+{
+    if(index >= l->size)
+        return NULL;
+
     return l->element[index];
 }

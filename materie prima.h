@@ -5,7 +5,7 @@
 #ifndef COFETARIE_MATERIE_PRIMA_H
 #define COFETARIE_MATERIE_PRIMA_H
 
-//structura care reprezinta o materie prima
+///structura care reprezinta o materie prima
 
 typedef struct {
     char *name;

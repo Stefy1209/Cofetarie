@@ -112,6 +112,10 @@ void UIFilterQuan(ui *UI) {
     print(UI->service->filtered);
 }
 
+void print_help() {
+
+}
+
 void runUI(ui *UI) {
     bool finished = false;
     char command[257];
@@ -124,11 +128,13 @@ void runUI(ui *UI) {
             case 'a':
                 if(strcmp(command, "add") == 0)
                     UIAdd(UI);
+                else printf("\nInvalid command!\n\n");
                 break;
 
             case 'm':
                 if(strcmp(command, "modify") == 0)
                     UIModify(UI);
+                else printf("\nInvalid command!\n\n");
                 break;
 
             case 's':
@@ -138,44 +144,66 @@ void runUI(ui *UI) {
                     print(UI->service->list);
                 }
 
-                if(strcmp(command, "sort_des_by_name") == 0) {
+                else if(strcmp(command, "sort_des_by_name") == 0) {
                     sort_down_name(UI->service);
                     printf("\n");
                     print(UI->service->list);
                 }
 
-                if(strcmp(command, "sort_asc_by_q") == 0) {
+                else if(strcmp(command, "sort_asc_by_q") == 0) {
                     sort_up_quantity(UI->service);
                     printf("\n");
                     print(UI->service->list);
                 }
 
-                if(strcmp(command, "sort_des_by_q") == 0) {
+                else if(strcmp(command, "sort_des_by_q") == 0) {
                     sort_down_quantity(UI->service);
                     printf("\n");
                     print(UI->service->list);
                 }
+
+                else printf("\nInvalid command!\n\n");
+
                 break;
 
             case 'f':
                 if(strcmp(command, "filter_by_letter") == 0)
                     UIFilterLetter(UI);
 
-                if(strcmp(command, "filter_by_q") == 0)
+                else if(strcmp(command, "filter_by_q") == 0)
                     UIFilterQuan(UI);
+
+                else printf("\nInvalid command!\n\n");
+
                 break;
 
             case 'd':
                 if(strcmp(command, "delete") == 0)
                     UIDelete(UI);
+
+                else printf("\nInvalid command!\n\n");
+
                 break;
 
             case 'e':
                 if(strcmp(command, "exit") == 0)
                     finished = true;
+
+                else printf("\nInvalid command!\n\n");
+
                 break;
+
+            case 'h':
+                if(strcmp(command, "help") == 0)
+                    print_help();
+
+                else printf("\nInvalid command!\n\n");
+
+                break;
+
             default:
-                printf("\n")
+                printf("\nInvalid command!\n\n");
+                break;
         }
     }
 }
