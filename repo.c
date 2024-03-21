@@ -88,7 +88,7 @@ int delete_TElem(list *l, TElem *e)
     return 1;
 }
 
-void empty_list(list *l)
+void set_size_0(list *l)
 /// sets the size of l to 0
 /// \param l - list
 {

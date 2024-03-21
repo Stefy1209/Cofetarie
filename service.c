@@ -7,7 +7,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-service *new_service() {
+service *new_service()
+/// creates a service
+/// \return service
+{
     service *s = NULL;
     s = malloc(sizeof(service));
     s->list = new_list();
@@ -16,20 +19,39 @@ service *new_service() {
     return s;
 }
 
-void destroy_service(service *s) {
-    empty_list(s->filtered);
+void destroy_service(service *s)
+/// frees the memory used by s
+/// \param s - service
+{
+    set_size_0(s->filtered);
     destroy_list(s->list);
     destroy_list(s->filtered);
     free(s);
 }
 
-int add_materie_prima(service *s, char *name, char *producer, unsigned long quantity) {
+int add_materie_prima(service *s, char *name, char *producer, unsigned long quantity)
+/// adds a raw material
+/// \param s - service
+/// \param name - char *
+/// \param producer - char *
+/// \param quantity - unsigned long
+/// \return 0 - added with success
+///         1 - it could not be added
+{
     TElem *e = new_materie_prima(name, producer, quantity);
 
     return add_TElem(s->list, e);
 }
 
-int modify_materie(service *s, char *name, char *new_producer, unsigned long new_quantity) {
+int modify_materie(service *s, char *name, char *new_producer, unsigned long new_quantity)
+/// modifies the raw material that has the name given
+/// \param s - service
+/// \param name - char *
+/// \param new_producer - char *
+/// \param new_quantity - unsigned long
+/// \return 0 - modified with success
+///         1 - it could not be modified
+{
     TElem *e = find_by_name(s->list, name);
 
     if(e == NULL) {
@@ -42,7 +64,13 @@ int modify_materie(service *s, char *name, char *new_producer, unsigned long new
     return 0;
 }
 
-int delete_materie(service *s, char *name) {
+int delete_materie(service *s, char *name)
+/// deletes the material
+/// \param s - service
+/// \param name - char *
+/// \return 0 - deleted with success
+///         1 - it could not be modified
+{
     TElem *e = find_by_name(s->list, name);
 
     if(e == NULL) {
@@ -62,12 +90,17 @@ bool less_quantity(TElem *e, unsigned long quantity) {
     return get_quantity(e) < quantity;
 }
 
-list *filter_by_the_first_letter(service *s, char letter) {
+list *filter_by_the_first_letter(service *s, char letter)
+///
+/// \param s - service
+/// \param letter - char
+/// \return list
+{
     TElem *e;
     unsigned long i, size;
     size = get_size(s->list);
 
-    empty_list(s->filtered);
+    set_size_0(s->filtered);
 
     for(i = 0; i < size; i++) {
         e = find_by_index(s->list, i);
@@ -79,12 +112,17 @@ list *filter_by_the_first_letter(service *s, char letter) {
     return s->filtered;
 }
 
-list *filter_by_quantity(service *s, unsigned long quantity) {
+list *filter_by_quantity(service *s, unsigned long quantity)
+///
+/// \param s - service
+/// \param quantity - unsigned long
+/// \return list
+{
     TElem *e;
     unsigned long i, size;
     size = get_size(s->list);
 
-    empty_list(s->filtered);
+    set_size_0(s->filtered);
 
     for(i = 0; i < size; i++) {
         e = find_by_index(s->list, i);

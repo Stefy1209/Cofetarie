@@ -126,7 +126,7 @@ void testEmptyList() {
     add_TElem(l, e1);
     add_TElem(l, e2);
 
-    empty_list(l);
+    set_size_0(l);
     assert(l->size == 0);
 
     destroy_list(l);

@@ -113,7 +113,18 @@ void UIFilterQuan(ui *UI) {
 }
 
 void print_help() {
-
+    printf("\n");
+    printf("Type the command to:\n");
+    printf("    1. add - add raw material\n");
+    printf("    2. modify - modify raw material\n");
+    printf("    3. delete - delete raw material\n");
+    printf("    4. filter_by_letter - show the materials that start with a specific letter\n");
+    printf("    5. filter_by_quantity - show the materials that their quantity is less than a specific number\n");
+    printf("    6. sort_asc_by_name\n");
+    printf("    7. sort_des_by_name\n");
+    printf("    8. sort_asc_by_quantity\n");
+    printf("    9. sort_des_by_quantity\n");
+    printf("\n");
 }
 
 void runUI(ui *UI) {
@@ -150,13 +161,13 @@ void runUI(ui *UI) {
                     print(UI->service->list);
                 }
 
-                else if(strcmp(command, "sort_asc_by_q") == 0) {
+                else if(strcmp(command, "sort_asc_by_quantity") == 0) {
                     sort_up_quantity(UI->service);
                     printf("\n");
                     print(UI->service->list);
                 }
 
-                else if(strcmp(command, "sort_des_by_q") == 0) {
+                else if(strcmp(command, "sort_des_by_quantity") == 0) {
                     sort_down_quantity(UI->service);
                     printf("\n");
                     print(UI->service->list);
@@ -170,7 +181,7 @@ void runUI(ui *UI) {
                 if(strcmp(command, "filter_by_letter") == 0)
                     UIFilterLetter(UI);
 
-                else if(strcmp(command, "filter_by_q") == 0)
+                else if(strcmp(command, "filter_by_quantity") == 0)
                     UIFilterQuan(UI);
 
                 else printf("\nInvalid command!\n\n");

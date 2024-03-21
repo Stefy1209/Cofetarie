@@ -20,7 +20,7 @@ void destroy_list(list *l);
 
 int add_TElem(list *l, TElem *e);
 int delete_TElem(list *l, TElem *e);
-void empty_list(list *l);
+void set_size_0(list *l);
 
 unsigned long get_size(list *l);
 unsigned long get_capacity(list *l);
