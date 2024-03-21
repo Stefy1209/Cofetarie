@@ -1,0 +1,201 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/repo.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/repo.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/repo.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 13.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "repo.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdlib.h>
+        -:    8:
+function new_list called 30 returned 100% blocks executed 100%
+       30:    9:list *new_list()
+        -:   10:/// creates a new list
+        -:   11:/// \return list
+        -:   12:{
+        -:   13:    list *l;
+        -:   14:
+       30:   15:    l = malloc(sizeof(list));
+        -:   16:
+       30:   17:    l->element = malloc(sizeof(TElem *));
+       30:   18:    l->size = 0;
+       30:   19:    l->capacity = 1;
+        -:   20:
+       30:   21:    return l;
+       30:   21-block  0
+        -:   22:}
+        -:   23:
+function destroy_list called 30 returned 100% blocks executed 100%
+       30:   24:void destroy_list(list *l)
+        -:   25:/// frees the memory used by l
+        -:   26:/// \param l - list
+        -:   27:{
+        -:   28:    unsigned long i, size;
+       30:   29:    size = l->size;
+        -:   30:
+       66:   31:    for(i = 0; i < size; i++) {
+       30:   31-block  0
+       66:   31-block  1
+branch  0 taken 36
+branch  1 taken 30 (fallthrough)
+       36:   32:        destroy_materie_prima(l->element[i]);
+       36:   32-block  0
+call    0 returned 36
+        -:   33:    }
+        -:   34:
+       30:   35:    free(l->element);
+       30:   36:    free(l);
+       30:   37:}
+        -:   38:
+function add_TElem called 44 returned 100% blocks executed 100%
+       44:   39:int add_TElem(list *l, TElem *e)
+        -:   40:/// adds a TElem to the list
+        -:   41:/// \param l - list
+        -:   42:/// \param e - TElem
+        -:   43:/// \return 0 if it was added with success
+        -:   44:///         1 if it failed
+        -:   45:{
+       44:   46:    if(l->size == l->capacity) {
+       44:   46-block  0
+branch  0 taken 26 (fallthrough)
+branch  1 taken 18
+        -:   47:        TElem **aux;
+        -:   48:
+       26:   49:        l->capacity <<= 1;
+       26:   50:        aux = realloc(l->element, l->capacity * sizeof(TElem *));
+        -:   51:
+        -:   52:        //if(aux == NULL) {
+        -:   53:            //l->capacity >>= 1;
+        -:   54:            //return 1;
+        -:   55:        //}
+        -:   56:
+       26:   57:        l->element = aux;
+       26:   57-block  0
+        -:   58:    }
+        -:   59:
+       44:   60:    l->element[ l->size++ ] = e;
+        -:   61:
+       44:   62:    return 0;
+       44:   62-block  0
+        -:   63:}
+        -:   64:
+function delete_TElem called 3 returned 100% blocks executed 100%
+        3:   65:int delete_TElem(list *l, TElem *e)
+        -:   66:/// eliminates the e from l and also frees the memory used by e
+        -:   67:/// \param l - list
+        -:   68:/// \param e - TElem
+        -:   69:/// \return 0 if the element was eliminated
+        -:   70:///         1 if the element was not found in the list
+        -:   71:{
+        -:   72:    unsigned long i, size;
+        3:   73:    size = l->size;
+        -:   74:
+        6:   75:    for(i = 0; i < size; i++) {
+        3:   75-block  0
+        3:   75-block  1
+        6:   75-block  2
+branch  0 taken 5
+branch  1 taken 1 (fallthrough)
+        5:   76:        if(l->element[i] == e) {
+        5:   76-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 3
+        -:   77:            unsigned long j;
+        3:   78:            for(j = i; j < size - 1; j++)
+        2:   78-block  0
+        3:   78-block  1
+branch  0 taken 1
+branch  1 taken 2 (fallthrough)
+        1:   79:                l->element[j] = l->element[j + 1];
+        1:   79-block  0
+        -:   80:
+        2:   81:            l->size--;
+        2:   82:            destroy_materie_prima(e);
+        2:   82-block  0
+call    0 returned 2
+        -:   83:
+        2:   84:            return 0;
+        -:   85:        }
+        -:   86:    }
+        -:   87:
+        1:   88:    return 1;
+        1:   88-block  0
+        -:   89:}
+        -:   90:
+function empty_list called 14 returned 100% blocks executed 100%
+       14:   91:void empty_list(list *l)
+        -:   92:/// sets the size of l to 0
+        -:   93:/// \param l - list
+        -:   94:{
+       14:   95:    l->size = 0;
+       14:   96:}
+        -:   97:
+function get_size called 8 returned 100% blocks executed 100%
+        8:   98:unsigned long get_size(list *l)
+        -:   99:/// gets the size of
+        -:  100:/// \param l
+        -:  101:/// \return
+        -:  102:{
+        8:  103:    return l->size;
+        8:  103-block  0
+        -:  104:}
+        -:  105:
+function get_capacity called 1 returned 100% blocks executed 100%
+        1:  106:unsigned long get_capacity(list *l)
+        -:  107:/// gets the capacity of l
+        -:  108:/// \param l - list
+        -:  109:/// \return unsigned long
+        -:  110:{
+        1:  111:    return l->capacity;
+        1:  111-block  0
+        -:  112:}
+        -:  113:
+function find_by_name called 7 returned 100% blocks executed 100%
+        7:  114:TElem *find_by_name(list *l, char *name)
+        -:  115:/// gets the TElem that has the name
+        -:  116:/// \param l - list
+        -:  117:/// \param name - char *
+        -:  118:/// \return TElem
+        -:  119:{
+        -:  120:    unsigned long i, size;
+        7:  121:    size = l->size;
+        -:  122:
+       12:  123:    for(i = 0; i < size; i++) {
+        7:  123-block  0
+        5:  123-block  1
+       12:  123-block  2
+branch  0 taken 9
+branch  1 taken 3 (fallthrough)
+        9:  124:        if(strcmp(get_name(l->element[i]), name) == 0) {
+        9:  124-block  0
+call    0 returned 9
+branch  1 taken 4 (fallthrough)
+branch  2 taken 5
+        4:  125:            return l->element[i];
+        4:  125-block  0
+        -:  126:        }
+        -:  127:    }
+        -:  128:
+        3:  129:    return NULL;
+        3:  129-block  0
+        -:  130:}
+        -:  131:
+function find_by_index called 15 returned 100% blocks executed 100%
+       15:  132:TElem *find_by_index(list *l, unsigned long index)
+        -:  133:/// gets the TElem that occupies the position index in l, starting from 0
+        -:  134:/// \param l - list
+        -:  135:/// \param index - unsigned long
+        -:  136:/// \return - TElem
+        -:  137:{
+       15:  138:    if(index >= l->size)
+       15:  138-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 14
+        1:  139:        return NULL;
+        1:  139-block  0
+        -:  140:
+       14:  141:    return l->element[index];
+       14:  141-block  0
+        -:  142:}

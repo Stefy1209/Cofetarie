@@ -51,37 +51,37 @@ build cmake_object_order_depends_target_cofetarie: phony || CMakeFiles/cofetarie
 
 build CMakeFiles/cofetarie.dir/main.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/main.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/main.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 
 build CMakeFiles/cofetarie.dir/materie_prima.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/materie$ prima.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/materie_prima.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 
 build CMakeFiles/cofetarie.dir/repo.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/repo.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/repo.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 
 build CMakeFiles/cofetarie.dir/service.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/service.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/service.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 
 build CMakeFiles/cofetarie.dir/ui.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/ui.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/ui.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 
 build CMakeFiles/cofetarie.dir/test.c.o: C_COMPILER__cofetarie_unscanned_Debug /home/stefy0-0/CLionProjects/OOP/cofetarie/test.c || cmake_object_order_depends_target_cofetarie
   DEP_FILE = CMakeFiles/cofetarie.dir/test.c.o.d
-  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always -Wall -Wextra -Wpedantic
   OBJECT_DIR = CMakeFiles/cofetarie.dir
   OBJECT_FILE_DIR = CMakeFiles/cofetarie.dir
 

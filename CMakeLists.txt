@@ -14,3 +14,5 @@ add_executable(cofetarie main.c
         ui.h
         test.c
         test.h)
+
+target_compile_options(cofetarie PRIVATE -Wall -Wextra -Wpedantic)

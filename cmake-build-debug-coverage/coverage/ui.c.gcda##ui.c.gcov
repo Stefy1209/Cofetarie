@@ -1,0 +1,356 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/ui.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/ui.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/ui.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 13.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "ui.h"
+        -:    6:#include <stdbool.h>
+        -:    7:#include <stdio.h>
+        -:    8:#include <string.h>
+        -:    9:#include <stdlib.h>
+        -:   10:
+function print called 0 returned 0% blocks executed 0%
+    #####:   11:void print(list *l) {
+    #####:   12:    unsigned long i, size = l->size, quantity;
+        -:   13:    TElem *e;
+        -:   14:    char *name, *producer;
+        -:   15:
+    #####:   16:    for(i = 0; i < size; i++) {
+    %%%%%:   16-block  0
+    %%%%%:   16-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   17:        e = l->element[i];
+    #####:   18:        name = get_name(e);
+    %%%%%:   18-block  0
+call    0 never executed
+    #####:   19:        producer = get_producer(e);
+call    0 never executed
+    #####:   20:        quantity = get_quantity(e);
+call    0 never executed
+        -:   21:
+    #####:   22:        printf("Name: %s\n", name);
+call    0 never executed
+    #####:   23:        printf("Producer: %s\n", producer);
+call    0 never executed
+    #####:   24:        printf("Quantity: %ld\n", quantity);
+call    0 never executed
+    #####:   25:        printf("\n");
+call    0 never executed
+        -:   26:    }
+    #####:   27:}
+        -:   28:
+function UIAdd called 0 returned 0% blocks executed 0%
+    #####:   29:void UIAdd(ui *UI) {
+        -:   30:    char name[256], producer[256];
+        -:   31:    char number[256], *ptr;
+        -:   32:    unsigned long quantity;
+        -:   33:
+    #####:   34:    printf("\n");
+    %%%%%:   34-block  0
+call    0 never executed
+    #####:   35:    printf("Enter name: ");
+call    0 never executed
+    #####:   36:    scanf("%s", name);
+call    0 never executed
+    #####:   37:    printf("Enter producer: ");
+call    0 never executed
+    #####:   38:    scanf("%s", producer);
+call    0 never executed
+    #####:   39:    printf("Enter quantity: ");
+call    0 never executed
+    #####:   40:    scanf("%s", number);
+call    0 never executed
+    #####:   41:    quantity = strtoul(number, &ptr, 10);
+call    0 never executed
+        -:   42:
+    #####:   43:    add_materie_prima(UI->service, name, producer, quantity);
+call    0 never executed
+        -:   44:
+    #####:   45:    printf("\n");
+call    0 never executed
+        -:   46:
+    #####:   47:    print(UI->service->list);
+call    0 never executed
+    #####:   48:}
+        -:   49:
+function UIModify called 0 returned 0% blocks executed 0%
+    #####:   50:void UIModify(ui *UI) {
+        -:   51:    char name[256], new_producer[256];
+        -:   52:    char number[256], *ptr;
+        -:   53:    unsigned long new_quantity;
+        -:   54:
+    #####:   55:    printf("\n");
+    %%%%%:   55-block  0
+call    0 never executed
+    #####:   56:    printf("Enter name: ");
+call    0 never executed
+    #####:   57:    scanf("%s", name);
+call    0 never executed
+    #####:   58:    printf("Enter producer: ");
+call    0 never executed
+    #####:   59:    scanf("%s", new_producer);
+call    0 never executed
+    #####:   60:    printf("Enter quantity: ");
+call    0 never executed
+    #####:   61:    scanf("%s", number);
+call    0 never executed
+    #####:   62:    new_quantity = strtoul(number, &ptr, 10);
+call    0 never executed
+        -:   63:
+    #####:   64:    modify_materie(UI->service, name, new_producer, new_quantity);
+call    0 never executed
+        -:   65:
+    #####:   66:    printf("\n");
+call    0 never executed
+        -:   67:
+    #####:   68:    print(UI->service->list);
+call    0 never executed
+    #####:   69:}
+        -:   70:
+function UIDelete called 0 returned 0% blocks executed 0%
+    #####:   71:void UIDelete(ui *UI) {
+        -:   72:    char name[256];
+        -:   73:
+    #####:   74:    printf("\n");
+    %%%%%:   74-block  0
+call    0 never executed
+    #####:   75:    printf("Enter name: ");
+call    0 never executed
+    #####:   76:    scanf("%s", name);
+call    0 never executed
+        -:   77:
+    #####:   78:    delete_materie(UI->service, name);
+call    0 never executed
+        -:   79:
+    #####:   80:    printf("\n");
+call    0 never executed
+        -:   81:
+    #####:   82:    print(UI->service->list);
+call    0 never executed
+    #####:   83:}
+        -:   84:
+function UIFilterLetter called 0 returned 0% blocks executed 0%
+    #####:   85:void UIFilterLetter(ui *UI) {
+        -:   86:    char letter;
+        -:   87:
+    #####:   88:    printf("\n");
+    %%%%%:   88-block  0
+call    0 never executed
+    #####:   89:    printf("Enter a letter: ");
+call    0 never executed
+    #####:   90:    scanf(" %c", &letter);
+call    0 never executed
+        -:   91:
+    #####:   92:    filter_by_the_first_letter(UI->service, letter);
+call    0 never executed
+        -:   93:
+    #####:   94:    printf("\n");
+call    0 never executed
+        -:   95:
+    #####:   96:    print(UI->service->filtered);
+call    0 never executed
+    #####:   97:}
+        -:   98:
+function UIFilterQuan called 0 returned 0% blocks executed 0%
+    #####:   99:void UIFilterQuan(ui *UI) {
+        -:  100:    unsigned long quantity;
+        -:  101:    char number[256], *ptr;
+        -:  102:
+    #####:  103:    printf("\n");
+    %%%%%:  103-block  0
+call    0 never executed
+    #####:  104:    printf("Enter a quantity: ");
+call    0 never executed
+    #####:  105:    scanf("%s", number);
+call    0 never executed
+    #####:  106:    quantity = strtoul(number, &ptr, 10);
+call    0 never executed
+        -:  107:
+    #####:  108:    filter_by_quantity(UI->service, quantity);
+call    0 never executed
+        -:  109:
+    #####:  110:    printf("\n");
+call    0 never executed
+        -:  111:
+    #####:  112:    print(UI->service->filtered);
+call    0 never executed
+    #####:  113:}
+        -:  114:
+function runUI called 1 returned 100% blocks executed 19%
+        1:  115:void runUI(ui *UI) {
+        1:  116:    bool finished = false;
+        -:  117:    char command[257];
+        -:  118:
+        2:  119:    while (finished == false) {
+        1:  119-block  0
+        2:  119-block  1
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        1:  120:        printf(">>> ");
+        1:  120-block  0
+call    0 returned 1
+        1:  121:        fscanf(stdin,"%s", command);
+call    0 returned 1
+        -:  122:
+        1:  123:        switch (command[0]) {
+branch  0 taken 0
+branch  1 taken 0
+branch  2 taken 0
+branch  3 taken 0
+branch  4 taken 0
+branch  5 taken 1
+branch  6 taken 0
+    #####:  124:            case 'a':
+    #####:  125:                if(strcmp(command, "add") == 0)
+    %%%%%:  125-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  126:                    UIAdd(UI);
+    %%%%%:  126-block  0
+call    0 never executed
+    #####:  127:                else printf("\nInvalid command!\n\n");
+    %%%%%:  127-block  0
+call    0 never executed
+    #####:  128:                break;
+    %%%%%:  128-block  0
+        -:  129:
+    #####:  130:            case 'm':
+    #####:  131:                if(strcmp(command, "modify") == 0)
+    %%%%%:  131-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  132:                    UIModify(UI);
+    %%%%%:  132-block  0
+call    0 never executed
+    #####:  133:                else printf("\nInvalid command!\n\n");
+    %%%%%:  133-block  0
+call    0 never executed
+    #####:  134:                break;
+    %%%%%:  134-block  0
+        -:  135:
+    #####:  136:            case 's':
+    #####:  137:                if(strcmp(command, "sort_asc_by_name") == 0) {
+    %%%%%:  137-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  138:                    sort_up_name(UI->service);
+    %%%%%:  138-block  0
+call    0 never executed
+    #####:  139:                    printf("\n");
+call    0 never executed
+    #####:  140:                    print(UI->service->list);
+call    0 never executed
+        -:  141:                }
+        -:  142:
+    #####:  143:                else if(strcmp(command, "sort_des_by_name") == 0) {
+    %%%%%:  143-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  144:                    sort_down_name(UI->service);
+    %%%%%:  144-block  0
+call    0 never executed
+    #####:  145:                    printf("\n");
+call    0 never executed
+    #####:  146:                    print(UI->service->list);
+call    0 never executed
+        -:  147:                }
+        -:  148:
+    #####:  149:                else if(strcmp(command, "sort_asc_by_q") == 0) {
+    %%%%%:  149-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  150:                    sort_up_quantity(UI->service);
+    %%%%%:  150-block  0
+call    0 never executed
+    #####:  151:                    printf("\n");
+call    0 never executed
+    #####:  152:                    print(UI->service->list);
+call    0 never executed
+        -:  153:                }
+        -:  154:
+    #####:  155:                else if(strcmp(command, "sort_des_by_q") == 0) {
+    %%%%%:  155-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  156:                    sort_down_quantity(UI->service);
+    %%%%%:  156-block  0
+call    0 never executed
+    #####:  157:                    printf("\n");
+call    0 never executed
+    #####:  158:                    print(UI->service->list);
+call    0 never executed
+        -:  159:                }
+        -:  160:
+    #####:  161:                else printf("\nInvalid command!\n\n");
+    %%%%%:  161-block  0
+call    0 never executed
+        -:  162:
+    #####:  163:                break;
+    %%%%%:  163-block  0
+        -:  164:
+    #####:  165:            case 'f':
+    #####:  166:                if(strcmp(command, "filter_by_letter") == 0)
+    %%%%%:  166-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  167:                    UIFilterLetter(UI);
+    %%%%%:  167-block  0
+call    0 never executed
+        -:  168:
+    #####:  169:                else if(strcmp(command, "filter_by_q") == 0)
+    %%%%%:  169-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  170:                    UIFilterQuan(UI);
+    %%%%%:  170-block  0
+call    0 never executed
+        -:  171:
+    #####:  172:                else printf("\nInvalid command!\n\n");
+    %%%%%:  172-block  0
+call    0 never executed
+        -:  173:
+    #####:  174:                break;
+    %%%%%:  174-block  0
+        -:  175:
+    #####:  176:            case 'd':
+    #####:  177:                if(strcmp(command, "delete") == 0)
+    %%%%%:  177-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  178:                    UIDelete(UI);
+    %%%%%:  178-block  0
+call    0 never executed
+        -:  179:
+    #####:  180:                else printf("\nInvalid command!\n\n");
+    %%%%%:  180-block  0
+call    0 never executed
+        -:  181:
+    #####:  182:                break;
+    %%%%%:  182-block  0
+        -:  183:
+        1:  184:            case 'e':
+        1:  185:                if(strcmp(command, "exit") == 0)
+        1:  185-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  186:                    finished = true;
+        1:  186-block  0
+        -:  187:
+    #####:  188:                else printf("\nInvalid command!\n\n");
+    %%%%%:  188-block  0
+call    0 never executed
+        -:  189:
+        1:  190:                break;
+        1:  190-block  0
+    #####:  191:            default:
+    #####:  192:                printf("\nInvalid command!\n\n");
+    %%%%%:  192-block  0
+call    0 never executed
+    #####:  193:                break;
+        -:  194:        }
+        -:  195:    }
+        1:  196:}

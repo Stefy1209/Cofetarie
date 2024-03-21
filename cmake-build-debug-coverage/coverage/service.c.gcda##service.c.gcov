@@ -1,0 +1,267 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/OOP/cofetarie/service.c
+        -:    0:Graph:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/service.c.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/OOP/cofetarie/cmake-build-debug-coverage/CMakeFiles/cofetarie.dir/service.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 13.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "service.h"
+        -:    6:#include <string.h>
+        -:    7:#include <stdlib.h>
+        -:    8:#include <stdbool.h>
+        -:    9:
+function new_service called 11 returned 100% blocks executed 100%
+       11:   10:service *new_service() {
+       11:   11:    service *s = NULL;
+       11:   12:    s = malloc(sizeof(service));
+       11:   13:    s->list = new_list();
+       11:   13-block  0
+call    0 returned 11
+       11:   14:    s->filtered = new_list();
+call    0 returned 11
+        -:   15:
+       11:   16:    return s;
+        -:   17:}
+        -:   18:
+function destroy_service called 11 returned 100% blocks executed 100%
+       11:   19:void destroy_service(service *s) {
+       11:   20:    empty_list(s->filtered);
+       11:   20-block  0
+call    0 returned 11
+       11:   21:    destroy_list(s->list);
+call    0 returned 11
+       11:   22:    destroy_list(s->filtered);
+call    0 returned 11
+       11:   23:    free(s);
+       11:   24:}
+        -:   25:
+function add_materie_prima called 21 returned 100% blocks executed 100%
+       21:   26:int add_materie_prima(service *s, char *name, char *producer, unsigned long quantity) {
+       21:   27:    TElem *e = new_materie_prima(name, producer, quantity);
+       21:   27-block  0
+call    0 returned 21
+        -:   28:
+       21:   29:    return add_TElem(s->list, e);
+call    0 returned 21
+        -:   30:}
+        -:   31:
+function modify_materie called 2 returned 100% blocks executed 100%
+        2:   32:int modify_materie(service *s, char *name, char *new_producer, unsigned long new_quantity) {
+        2:   33:    TElem *e = find_by_name(s->list, name);
+        2:   33-block  0
+call    0 returned 2
+        -:   34:
+        2:   35:    if(e == NULL) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   36:        return 1;
+        1:   36-block  0
+        -:   37:    }
+        -:   38:
+        1:   39:    set_producer(e, new_producer);
+        1:   39-block  0
+call    0 returned 1
+        1:   40:    set_quantity(e, new_quantity);
+call    0 returned 1
+        -:   41:
+        1:   42:    return 0;
+        -:   43:}
+        -:   44:
+function delete_materie called 2 returned 100% blocks executed 100%
+        2:   45:int delete_materie(service *s, char *name) {
+        2:   46:    TElem *e = find_by_name(s->list, name);
+        2:   46-block  0
+call    0 returned 2
+        -:   47:
+        2:   48:    if(e == NULL) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:   49:        return 1;
+        1:   49-block  0
+        -:   50:    }
+        -:   51:
+        1:   52:    delete_TElem(s->list, e);
+        1:   52-block  0
+call    0 returned 1
+        -:   53:
+        1:   54:    return 0;
+        -:   55:}
+        -:   56:
+function first_letter called 3 returned 100% blocks executed 100%
+        3:   57:bool first_letter(TElem *e, char letter) {
+        3:   58:    return get_name(e)[0] == letter;
+        3:   58-block  0
+call    0 returned 3
+        -:   59:}
+        -:   60:
+function less_quantity called 3 returned 100% blocks executed 100%
+        3:   61:bool less_quantity(TElem *e, unsigned long quantity) {
+        3:   62:    return get_quantity(e) < quantity;
+        3:   62-block  0
+call    0 returned 3
+        -:   63:}
+        -:   64:
+function filter_by_the_first_letter called 1 returned 100% blocks executed 100%
+        1:   65:list *filter_by_the_first_letter(service *s, char letter) {
+        -:   66:    TElem *e;
+        -:   67:    unsigned long i, size;
+        1:   68:    size = get_size(s->list);
+        1:   68-block  0
+call    0 returned 1
+        -:   69:
+        1:   70:    empty_list(s->filtered);
+call    0 returned 1
+        -:   71:
+        4:   72:    for(i = 0; i < size; i++) {
+        3:   72-block  0
+        4:   72-block  1
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:   73:        e = find_by_index(s->list, i);
+        3:   73-block  0
+call    0 returned 3
+        3:   74:        if(first_letter(e, letter)) {
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:   75:            add_TElem(s->filtered, e);
+        2:   75-block  0
+call    0 returned 2
+        -:   76:        }
+        -:   77:    }
+        -:   78:
+        1:   79:    return s->filtered;
+        1:   79-block  0
+        -:   80:}
+        -:   81:
+function filter_by_quantity called 1 returned 100% blocks executed 100%
+        1:   82:list *filter_by_quantity(service *s, unsigned long quantity) {
+        -:   83:    TElem *e;
+        -:   84:    unsigned long i, size;
+        1:   85:    size = get_size(s->list);
+        1:   85-block  0
+call    0 returned 1
+        -:   86:
+        1:   87:    empty_list(s->filtered);
+call    0 returned 1
+        -:   88:
+        4:   89:    for(i = 0; i < size; i++) {
+        3:   89-block  0
+        4:   89-block  1
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:   90:        e = find_by_index(s->list, i);
+        3:   90-block  0
+call    0 returned 3
+        3:   91:        if(less_quantity(e, quantity)) {
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:   92:            add_TElem(s->filtered, e);
+        2:   92-block  0
+call    0 returned 2
+        -:   93:        }
+        -:   94:    }
+        -:   95:
+        1:   96:    return s->filtered;
+        1:   96-block  0
+        -:   97:}
+        -:   98:
+function up_name called 3 returned 100% blocks executed 100%
+        3:   99:bool up_name(TElem *e1, TElem *e2) {
+        3:  100:    return strcmp(get_name(e1), get_name(e2)) > 0;
+        3:  100-block  0
+call    0 returned 3
+call    1 returned 3
+        -:  101:}
+        -:  102:
+function down_name called 3 returned 100% blocks executed 100%
+        3:  103:bool down_name(TElem *e1, TElem *e2) {
+        3:  104:    return strcmp(get_name(e1), get_name(e2)) < 0;
+        3:  104-block  0
+call    0 returned 3
+call    1 returned 3
+        -:  105:}
+        -:  106:
+function up_quantity called 3 returned 100% blocks executed 100%
+        3:  107:bool up_quantity(TElem *e1, TElem *e2) {
+        3:  108:    return get_quantity(e1) > get_quantity(e2);
+        3:  108-block  0
+call    0 returned 3
+call    1 returned 3
+        -:  109:}
+        -:  110:
+function down_quantity called 3 returned 100% blocks executed 100%
+        3:  111:bool down_quantity(TElem *e1, TElem *e2) {
+        3:  112:    return get_quantity(e1) < get_quantity(e2);
+        3:  112-block  0
+call    0 returned 3
+call    1 returned 3
+        -:  113:}
+        -:  114:
+function sort called 4 returned 100% blocks executed 100%
+        4:  115:list *sort(service *s, bool (*criteriu)(TElem *, TElem *)) {
+        -:  116:    unsigned long i, j, size, position;
+        -:  117:    TElem *aux;
+        4:  118:    size = get_size(s->list);
+        4:  118-block  0
+call    0 returned 4
+        -:  119:
+       12:  120:    for(i = 0; i < size - 1; i++) {
+       12:  120-block  0
+branch  0 taken 8
+branch  1 taken 4 (fallthrough)
+        8:  121:        position = i;
+       20:  122:        for(j = i+1; j < size; j++) {
+        8:  122-block  0
+       12:  122-block  1
+       20:  122-block  2
+branch  0 taken 12
+branch  1 taken 8 (fallthrough)
+       12:  123:            if(criteriu(s->list->element[i], s->list->element[j])) {
+       12:  123-block  0
+call    0 returned 12
+branch  1 taken 5 (fallthrough)
+branch  2 taken 7
+        5:  124:                position = j;
+        5:  124-block  0
+        -:  125:            }
+        -:  126:        }
+        8:  127:        aux = s->list->element[i];
+        8:  128:        s->list->element[i] = s->list->element[position];
+        8:  129:        s->list->element[position] = aux;
+        8:  129-block  0
+        -:  130:    }
+        -:  131:
+        4:  132:    return s->list;
+        4:  132-block  0
+        -:  133:}
+        -:  134:
+function sort_up_name called 1 returned 100% blocks executed 100%
+        1:  135:list *sort_up_name(service *s) {
+        1:  136:    return sort(s, &up_name);
+        1:  136-block  0
+call    0 returned 1
+        -:  137:}
+        -:  138:
+function sort_down_name called 1 returned 100% blocks executed 100%
+        1:  139:list *sort_down_name(service *s) {
+        1:  140:    return sort(s, &down_name);
+        1:  140-block  0
+call    0 returned 1
+        -:  141:}
+        -:  142:
+function sort_up_quantity called 1 returned 100% blocks executed 100%
+        1:  143:list *sort_up_quantity(service *s) {
+        1:  144:    return sort(s, &up_quantity);
+        1:  144-block  0
+call    0 returned 1
+        -:  145:}
+        -:  146:
+function sort_down_quantity called 1 returned 100% blocks executed 100%
+        1:  147:list *sort_down_quantity(service *s) {
+        1:  148:    return sort(s, &down_quantity);
+        1:  148-block  0
+call    0 returned 1
+        -:  149:}

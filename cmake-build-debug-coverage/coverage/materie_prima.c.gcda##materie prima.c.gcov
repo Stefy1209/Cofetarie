@@ -10,62 +10,90 @@
         -:    6:#include <stdlib.h>
         -:    7:#include <string.h>
         -:    8:#include <stddef.h>
-        -:    9:#define nullptr NULL
-        -:   10:
-function new_materie_prima called 6 returned 100% blocks executed 100%
-        6:   11:materie_prima *new_materie_prima (char *name, char *producer, unsigned long quantity) {
-        -:   12:    materie_prima *m;
-        6:   13:    m = malloc(sizeof( materie_prima ));
-        -:   14:
-        -:   15:    //if(m == nullptr) {
-        -:   16:      //  return nullptr;
-        -:   17:    //}
-        -:   18:
-        6:   19:    m->name = malloc((strlen(name) + 1) * sizeof(char));
-        6:   20:    strcpy(m->name, name);
-        -:   21:
-        6:   22:    m->producer = malloc((strlen(producer) + 1) * sizeof(char));
-        6:   23:    strcpy(m->producer, producer);
-        -:   24:
-        6:   25:    m->quantity = quantity;
+        -:    9:
+function new_materie_prima called 46 returned 100% blocks executed 100%
+       46:   10:materie_prima *new_materie_prima (char *name, char *producer, unsigned long quantity)
+        -:   11:/// creates a new 'materie_prima'
+        -:   12:/// \param name - char *
+        -:   13:/// \param producer - char *
+        -:   14:/// \param quantity - unsigned long
+        -:   15:/// \return pointer to 'materie_prima'
+        -:   16:{
+        -:   17:    materie_prima *m;
+       46:   18:    m = malloc(sizeof( materie_prima ));
+        -:   19:
+        -:   20:    //if(m == NULL) {
+        -:   21:      //  return NULL;
+        -:   22:    //}
+        -:   23:
+       46:   24:    m->name = malloc((strlen(name) + 1) * sizeof(char));
+       46:   25:    strcpy(m->name, name);
         -:   26:
-        6:   27:    return m;
-        6:   27-block  0
-        -:   28:}
+       46:   27:    m->producer = malloc((strlen(producer) + 1) * sizeof(char));
+       46:   28:    strcpy(m->producer, producer);
         -:   29:
-function destroy_materie_prima called 6 returned 100% blocks executed 100%
-        6:   30:void destroy_materie_prima(materie_prima *m) {
-        6:   31:    free(m->name);
-        6:   32:    free(m->producer);
-        6:   33:    free(m);
-        6:   34:}
-        -:   35:
-function get_name called 1 returned 100% blocks executed 100%
-        1:   36:char *get_name(materie_prima *m) {
-        1:   37:    return m->name;
-        1:   37-block  0
-        -:   38:}
-        -:   39:
-function get_producer called 1 returned 100% blocks executed 100%
-        1:   40:char *get_producer(materie_prima *m) {
-        1:   41:    return m->producer;
-        1:   41-block  0
-        -:   42:}
+       46:   30:    m->quantity = quantity;
+        -:   31:
+       46:   32:    return m;
+       46:   32-block  0
+        -:   33:}
+        -:   34:
+function destroy_materie_prima called 46 returned 100% blocks executed 100%
+       46:   35:void destroy_materie_prima(materie_prima *m)
+        -:   36:/// frees memory used by m
+        -:   37:/// \param m - materie_prima
+        -:   38:{
+       46:   39:    free(m->name);
+       46:   40:    free(m->producer);
+       46:   41:    free(m);
+       46:   42:}
         -:   43:
-function get_quantity called 1 returned 100% blocks executed 100%
-        1:   44:unsigned long get_quantity(materie_prima *m) {
-        1:   45:    return m->quantity;
-        1:   45-block  0
-        -:   46:}
-        -:   47:
-function set_producer called 1 returned 100% blocks executed 100%
-        1:   48:void set_producer(materie_prima *m, char *new_producer) {
-        1:   49:    free(m->producer);
-        1:   50:    m->producer = malloc((strlen(new_producer) + 1) * sizeof(char));
-        1:   51:    strcpy(m->producer, new_producer);
-        1:   52:}
-        -:   53:
-function set_quantity called 1 returned 100% blocks executed 100%
-        1:   54:void set_quantity(materie_prima *m, unsigned long new_quantity) {
-        1:   55:    m->quantity = new_quantity;
-        1:   56:}
+function get_name called 31 returned 100% blocks executed 100%
+       31:   44:char *get_name(materie_prima *m)
+        -:   45:/// gets the name of m
+        -:   46:/// \param m - materie_prima
+        -:   47:/// \return char *
+        -:   48:{
+       31:   49:    return m->name;
+       31:   49-block  0
+        -:   50:}
+        -:   51:
+function get_producer called 3 returned 100% blocks executed 100%
+        3:   52:char *get_producer(materie_prima *m)
+        -:   53:/// gets the producer of m
+        -:   54:/// \param m - materie_prima
+        -:   55:/// \return char *
+        -:   56:{
+        3:   57:    return m->producer;
+        3:   57-block  0
+        -:   58:}
+        -:   59:
+function get_quantity called 18 returned 100% blocks executed 100%
+       18:   60:unsigned long get_quantity(materie_prima *m)
+        -:   61:/// gets the quantity of m
+        -:   62:/// \param m - materie_prima
+        -:   63:/// \return unsigned long
+        -:   64:{
+       18:   65:    return m->quantity;
+       18:   65-block  0
+        -:   66:}
+        -:   67:
+function set_producer called 2 returned 100% blocks executed 100%
+        2:   68:void set_producer(materie_prima *m, char *new_producer)
+        -:   69:/// changes the producer of m
+        -:   70:/// \param m - materie_prima
+        -:   71:/// \param new_producer - char *
+        -:   72:{
+        2:   73:    free(m->producer);
+        2:   74:    m->producer = malloc((strlen(new_producer) + 1) * sizeof(char));
+        2:   75:    strcpy(m->producer, new_producer);
+        2:   76:}
+        -:   77:
+function set_quantity called 2 returned 100% blocks executed 100%
+        2:   78:void set_quantity(materie_prima *m, unsigned long new_quantity)
+        -:   79:/// changes the quantity of m
+        -:   80:/// \param m - materie_prima
+        -:   81:/// \param new_quantity - unsigned long
+        -:   82:{
+        2:   83:    m->quantity = new_quantity;
+        2:   84:}
